@@ -90,6 +90,8 @@ class Llvm(CMakePackage):
     depends_on('gmp', when='@:3.6.999 +polly')
     depends_on('isl', when='@:3.6.999 +polly')
 
+    conflicts('%gcc@:4.6')  # Host GCC version must be at least 4.7!
+
     base_url = 'http://llvm.org/releases/%%(version)s/%(pkg)s-%%(version)s.src.tar.xz'
     llvm_url = base_url % {'pkg': 'llvm'}
 
